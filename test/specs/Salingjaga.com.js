@@ -75,11 +75,13 @@ describe("Salingjaga.com", () => {
     await $("label:nth-of-type(3) span.rounded-\\[50\\%\\]").click();
 
     // Submit terakhir
-    await submitButton.click();
+    const submitButton4 = await $("form button");
+    await submitButton4.waitForClickable({ timeout: 25000 });
+    await submitButton4.click();
 
     // Verifikasi akhir
     const finalInput = await $("input");
-    await finalInput.waitForClickable({ timeout: 5000 });
+    await finalInput.waitForClickable({ timeout: 15000 });
     await finalInput.click();
     await $("div.justify-center button").click();
   });
